@@ -1517,11 +1517,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_WalkSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RunSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RunstepLenghten
@@ -1545,7 +1545,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_StepInterval
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: field of view
@@ -1577,7 +1577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_JumpSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_UseFovKick
@@ -1625,6 +1625,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: DopplerLevel
+      value: 1.88999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_UseHeadBob
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2387,7 +2399,7 @@ MonoBehaviour:
   target: {fileID: 1237670881}
   playerDistance: 0
   attackDistance: 1.5
-  huntingRange: 5
+  huntingRange: 15
   health: 100
   speed: .400000006
   isHunting: 0
@@ -4858,7 +4870,7 @@ MonoBehaviour:
   target: {fileID: 1237670881}
   playerDistance: 0
   attackDistance: 1.5
-  huntingRange: 5
+  huntingRange: 15
   health: 100
   speed: .400000006
   isHunting: 0
@@ -6106,10 +6118,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d08a2f7d604a04fc19d12b966f07c687, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 21f7381b3f27145af9623e46bc38567a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.53999996
   Loop: 0
   Mute: 0
   Spatialize: 0
