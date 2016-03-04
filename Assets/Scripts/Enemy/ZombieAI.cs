@@ -38,7 +38,7 @@ public class ZombieAI : MonoBehaviour {
     IEnumerator KillPlayer()
     {
         //po sekundzie ataku, gracz umiera
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         if (attack)
             PlayerController.alive = false;
     }

@@ -25,8 +25,8 @@ public class BulletCleaner : MonoBehaviour {
             if (destroyBullet)
             {
                //ślad po strzale
-                 Quaternion rotation = new Quaternion(0,0,0,0);
-                 Instantiate(ShootMark, transform.position,rotation);
+                // Quaternion rotation = new Quaternion(0,0,0,0);
+                 //Instantiate(ShootMark, transform.position,rotation);
                 Destroy(gameObject);
             }
                  

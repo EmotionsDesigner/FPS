@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour {
 
     bool deathmoment = false;
 
+    IEnumerator LoadGameOver()
+    {
+        yield return new WaitForSeconds(4.5f);
+        Application.LoadLevel("overMenu");
+    }
     void PlayAudio(string name)
     {
 
@@ -50,13 +55,14 @@ public class PlayerController : MonoBehaviour {
         //śmierć gracza
         if (!alive)
         {
+
             //uaktualnienie flagi śmierci gracza w kontrolerze animacji
             animator.enabled = true;
              animator.SetBool("alive", alive);
             if (deathmoment==false)
                PlayAudio("PlayerDead");
             deathmoment = true;
-
+            StartCoroutine(LoadGameOver());
 
            
         }

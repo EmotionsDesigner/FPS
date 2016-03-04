@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/UWing/FlightSystem/Scenes/BasicDemo/BasicFlightSystemDemo.unity
   - enabled: 1
     path: Assets/hitTheLights.unity
+  - enabled: 1
+    path: Assets/overMenu.unity
