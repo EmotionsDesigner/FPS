@@ -5,7 +5,21 @@ public class PlayerController : MonoBehaviour {
     public bool alreadyShooting = false;
     public float shootingDelay=0.3f;
     public GameObject ammo;
+    public bool alive;
     public GameObject weapon;
+    Animator animator;
+
+    bool deathmoment = false;
+
+    void PlayAudio(string name)
+    {
+
+          AudioSource audio = GameObject.Find(name).GetComponent<AudioSource>();
+           audio.Play();
+
+
+    }
+    
     IEnumerator Shoot()
         {
                
@@ -25,11 +39,28 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+         animator = GetComponent < Animator>();
+         animator.enabled = false;
+         alive = true;
 	}
 
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        //śmierć gracza
+        if (!alive)
+        {
+            //uaktualnienie flagi śmierci gracza w kontrolerze animacji
+            animator.enabled = true;
+             animator.SetBool("alive", alive);
+            if (deathmoment==false)
+               PlayAudio("PlayerDead");
+            deathmoment = true;
+
+
+           
+        }
+          
         Cursor.visible = false;  
         //strzał
         if (Input.GetButton("Fire1") && alreadyShooting == false)

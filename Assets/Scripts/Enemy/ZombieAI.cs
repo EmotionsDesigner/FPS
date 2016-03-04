@@ -5,6 +5,7 @@ using Pathfinding;
 public class ZombieAI : MonoBehaviour {
     public CharacterController controller;
     public GameObject Player;
+    public PlayerController PlayerController;
     //referencja do wyszukiwacza ścieżki 
     public AIPath AIPath;
 
@@ -31,10 +32,16 @@ public class ZombieAI : MonoBehaviour {
 
     //czy aktualnie atakuje/poluje na gracza
     public bool isHunting;
-  
 
 
 
+    IEnumerator KillPlayer()
+    {
+        //po sekundzie ataku, gracz umiera
+        yield return new WaitForSeconds(1.0f);
+        if (attack)
+            PlayerController.alive = false;
+    }
 
     void OnCollisionEnter(Collision col)
     {
@@ -124,6 +131,8 @@ public class ZombieAI : MonoBehaviour {
 	void Start () { 
         controller = GetComponent<CharacterController>();
         animator = GetComponent < Animator>();
+        PlayerController = Player.GetComponent<PlayerController>();
+
   
 	}
 	
@@ -139,6 +148,8 @@ public class ZombieAI : MonoBehaviour {
         //moment śmierci
         if (health <= 0 && deathMoment==false)
         {
+            //zapobiega kolizji z niezyjącym potworem
+            controller.enabled = false;
             deathMoment = true;
             StopMoving();
 
@@ -153,18 +164,20 @@ public class ZombieAI : MonoBehaviour {
         {   
                
                 //pościg/atak gracza
-            if (playerDistance < huntingRange)
+            if (playerDistance < huntingRange || health<100)
             {
                 StartHunting();
                 //atak
                 if (playerDistance <= attackDistance)
                 {
+
                     isHunting = false;
                     //odwrócenie w strone gracza
                     transform.LookAt(target.transform);
                     attack = true;
                     if (attackPlaying == false)
                         StartCoroutine(AudioPlay("ZombieAttack", 2f));
+                    StartCoroutine(KillPlayer());
                 }
                 else
                 {
