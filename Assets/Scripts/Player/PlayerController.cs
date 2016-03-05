@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+         Cursor.lockState = CursorLockMode.Locked;
          animator = GetComponent < Animator>();
          animator.enabled = false;
          alive = true;
@@ -69,8 +70,12 @@ public class PlayerController : MonoBehaviour {
           
         Cursor.visible = false;  
         //strzał
-        if (Input.GetButton("Fire1") && alreadyShooting == false)
-            StartCoroutine(Shoot());
+        if (alreadyShooting == false)
+        {
+           if( Input.GetButtonDown("Fire1") ==false && Input.GetButton("Fire1")==false && Input.GetButtonUp("Fire1")==true)
+                    StartCoroutine(Shoot());
+        }
+     
      
 	
 	}
