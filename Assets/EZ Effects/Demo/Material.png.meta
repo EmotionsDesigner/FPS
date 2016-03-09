@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: b94ef4445ad4fd8489dff424093fef7c
-timeCreated: 1439458260
-licenseType: Store
+guid: 6eac69e04561b48409511f78bc5a4f3a
+labels:
+- Effects
+- MuzzleFlash
+- Impact
+- Tracer
+- Particles
+- Light
+- ParticleSystem
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -32,12 +38,11 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 1
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
