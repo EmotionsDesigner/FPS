@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour {
 	
 	public void TryAgain(){
         Cursor.visible = false;
-        Application.LoadLevel("hitTheLights");
+        Application.LoadLevel("level1");
     }
     public void ExitGame(){
         Application.Quit();
