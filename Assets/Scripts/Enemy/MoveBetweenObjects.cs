@@ -4,7 +4,7 @@ using System.Collections;
 public class MoveBetweenObjects : MonoBehaviour {
 
     //referencja do ZombieAI
-    public ZombieAI ZombieAI;
+    public EnemyAI EnemyAI;
 
       //cele statyczne (między którymi porusza się zombie, dopóki gracz nie będzie w jego zasięgu)
     public GameObject[] staticTargets;
@@ -49,9 +49,9 @@ public class MoveBetweenObjects : MonoBehaviour {
     void MoveBetweenStaticTargets() {
   
           //ustalenie aktualnego celu
-            ZombieAI.target = actualStaticTarget;
+            EnemyAI.target = actualStaticTarget;
               //odległość od aktualnego celu statycznego
-            float targetDistance = Vector3.Distance(ZombieAI.transform.position, actualStaticTarget.transform.position);
+            float targetDistance = Vector3.Distance(EnemyAI.transform.position, actualStaticTarget.transform.position);
             //jeżeli jesteśmy dostatecznie blisko
             if (targetDistance < pickNextTarget)
             {
@@ -105,7 +105,7 @@ public class MoveBetweenObjects : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         //gracz jest poza zasięgiem
-        if (!ZombieAI.isHunting)
+        if (!EnemyAI.isHunting)
             MoveBetweenStaticTargets();
             //gdy atakujemy gracza, ustawiamy nowy cel statyczny do którego wrócimy, gdy gracz ucieknie
         else

@@ -34,7 +34,7 @@ using Pathfinding.RVO;
 
 public class AIPath : MonoBehaviour {
 
-    public ZombieAI ZombieAI;
+    public EnemyAI EnemyAI;
     //decide when to search path to player
     public bool hunting = true;
     /** Determines how often it will search for new paths.
@@ -321,7 +321,7 @@ public class AIPath : MonoBehaviour {
         
 		if (!canMove) { return; }
         //ustalenie celu 
-        target = ZombieAI.target.transform;
+        target = EnemyAI.target.transform;
        
 		Vector3 dir = CalculateVelocity(GetFeetPosition());
 

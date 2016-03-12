@@ -2,21 +2,21 @@
 using System.Collections;
 
 public class BodyDamage : MonoBehaviour {
-    public ZombieAI Zombie;
+    public EnemyAI Enemy;
     public float damage;
      void OnCollisionEnter(Collision col)
     {
-         Debug.Log("Kolizja zombie z " + col.transform.name);
-        if (col.transform.tag == "Bullet" && Zombie.health>0)
+
+        if (col.transform.tag == "Bullet" && Enemy.health>0)
         {
-              Zombie.health -= damage ;
+              Enemy.health -= damage ;
               AudioSource a = GameObject.Find("Hit").GetComponent<AudioSource>();
               a.Play();
 
         }
         else
         {//zombie natrafi na przeszkode
-            Zombie.speed = 0f;
+            Enemy.speed = 0f;
         }
           
         

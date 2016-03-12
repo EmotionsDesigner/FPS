@@ -13,8 +13,8 @@ public class BulletCleaner : MonoBehaviour {
             //jeżeli kula trafi w martwego już wroga(leżącego na ziemi, to nie zostaje zniszczona) 
             if (col.transform.tag == "Enemy")
             {            
-                  ZombieAI Zombie = col.gameObject.GetComponentInParent<ZombieAI>();
-                  if (Zombie.health <= 0)
+                  EnemyAI Enemy = col.gameObject.GetComponentInParent<EnemyAI>();
+                  if (Enemy.health <= 0)
                        destroyBullet = false;                    
             }
             else
