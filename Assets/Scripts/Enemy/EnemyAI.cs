@@ -3,11 +3,13 @@ using System.Collections;
 using Pathfinding;
 
 public class EnemyAI : MonoBehaviour {
+
     public CharacterController controller;
     public GameObject Player;
     public PlayerController PlayerController;
     //referencja do wyszukiwacza ścieżki 
     public AIPath AIPath;
+
 
     //cel AKUTALNY
     public GameObject target;
@@ -58,6 +60,10 @@ public class EnemyAI : MonoBehaviour {
         isHunting = true;
         target = Player;
         animator.SetBool("Hunting", isHunting);
+        //rozpoczęcie poruszania i wyszukiwania ścieżki
+         AIPath.canMove = true;
+         AIPath.canSearch = true;
+                 
     }
     void StopMoving()
     {
@@ -146,7 +152,7 @@ public class EnemyAI : MonoBehaviour {
 	void FixedUpdate () {
         //uaktualnienie punktów w życia w kontrolerze animacji
         animator.SetFloat("Health", health);
-         animator.SetBool("Attack", attack);
+        animator.SetBool("Attack", attack);
         //uaktualnienie odległości od gracza
         TargetPosition = target.transform.position;
         playerDistance = Vector3.Distance(transform.position, Player.transform.position);
@@ -159,7 +165,7 @@ public class EnemyAI : MonoBehaviour {
             deathMoment = true;
             StopMoving();
 
-            //dezaktywuje siatki kolizji dla wszystkich części ciała umarłego zombie
+            //dezaktywuje siatki kolizji dla wszystkich części ciała umarłego (zombie)
             MeshCollider[] meshColliderChildren = gameObject.GetComponentsInChildren<MeshCollider>();
             foreach (MeshCollider meshChildCollider in meshColliderChildren)
                 meshChildCollider.enabled = false;      
@@ -181,9 +187,14 @@ public class EnemyAI : MonoBehaviour {
                     //odwrócenie w strone gracza
                     transform.LookAt(target.transform);
                     attack = true;
+                    //w trakcie ataku przeciwnik już nie porusza się
+                    StopMoving();
+
                     if (attackPlaying == false)
                         StartCoroutine(AudioPlay("ZombieAttack", 2f));
-                    StartCoroutine(KillPlayer());
+
+                    //na czas testów gracz jest nieśmiertelny
+                    //StartCoroutine(KillPlayer());
                 }
                 else
                 {

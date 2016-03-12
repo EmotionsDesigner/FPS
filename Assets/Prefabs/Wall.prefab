@@ -12,9 +12,9 @@ GameObject:
   - 65: {fileID: 6553462}
   - 23: {fileID: 2310624}
   - 114: {fileID: 11466158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: StaticUtility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: StaticUtility
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196234}

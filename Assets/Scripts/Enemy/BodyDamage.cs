@@ -7,8 +7,9 @@ public class BodyDamage : MonoBehaviour {
      void OnCollisionEnter(Collision col)
     {
 
-        if (col.transform.tag == "Bullet" && Enemy.health>0)
+        if (col.transform.tag == "Bullet" && Enemy.health>0 && col.transform.name!="BulletBase")
         {
+            Debug.Log("Ghul dostał w " + this.gameObject.name);
               Enemy.health -= damage ;
               AudioSource a = GameObject.Find("Hit").GetComponent<AudioSource>();
               a.Play();
