@@ -23,6 +23,14 @@ public class MapGeneratorEditor : Editor {
         GUILayoutOption width = GUILayout.Width(50);
         GUILayoutOption height = GUILayout.Height(20);
 
+
+         GUILayout.BeginHorizontal();
+            if(GUILayout.Button("RESET"))
+                myScript.ResetGenerator();
+            if(GUILayout.Button("COFNIJ"))
+                myScript.Undo();
+        GUILayout.EndHorizontal();
+
         GUILayout.BeginHorizontal();
             if(GUILayout.Button("UP", GUILayout.Width(100), height))
                 myScript.GenerateUp();
